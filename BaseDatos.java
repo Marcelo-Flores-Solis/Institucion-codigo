@@ -4,6 +4,7 @@ public class BaseDatos {
     private List<Curso> ListaCurso;
     private List<Docente> ListaDocente;
     private List<Inscripcion> ListaInscripcion;
+    private HashMap<Integer, String> ListaDeAprobacion;
 
     //listas inicializadas;
 
@@ -49,4 +50,19 @@ public class BaseDatos {
     ListaInscripcion.add(nueva);
     System.out.println("Inscripcion realizada");
     }
+
+    public Alumno PonderadoMasAlto(){
+        int notaAlta = ListaInscripcion.get(0).getNotafinal();
+        Alumno alumnoDestacado = null;
+        for (Inscripcion a: ListaInscripcion) {
+            if (a.getNotafinal()> notaAlta){
+                alumnoDestacado = a.getAlumno();
+            }
+
+        }
+        return alumnoDestacado;
+    }
+
+    
+
 }
